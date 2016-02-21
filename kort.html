@@ -1,1 +1,24 @@
-../kort.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Næði [alpha]</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="./kort.js"></script>
+    <script async defer
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDC5gqRroTvbRSqcGv5-82aLEuIu9lq38k&libraries=drawing&callback=initMap"></script>
+  </body>
+</html>

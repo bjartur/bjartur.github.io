@@ -27,18 +27,22 @@ function initMap() { // automatically called by the Google Maps library
         marker.addListener('click', function(mouseEvent) {
             infoWindow.open(map, marker);
         });
+
+        return infoWindow;
     }
 
     function mark(map) {
         return function(house) {
 
             house.map = map;
- 
-            var marker = new google.maps.Marker(house);
+            var marker = new google.maps.Marker(house),
+            pair = {
+                marker: this.marker,
 
-            annotate(map, marker, house.title, house.content);
+                infoWindow: annotate(map, marker, house.title, house.content)
+            }
 
-            return marker;
+            return pair;
         }
     }
 
@@ -65,10 +69,12 @@ function initMap() { // automatically called by the Google Maps library
     });
 
     editor.addListener('markercomplete', function(marker) {
-        mark(map)({
-            title: esc(prompt('Heimilisfang')),
+        infoMarker = mark(map)({ // just create and open a placeholder marker containing a form
+            title: "Skrá hús til leigu",
             position: marker.getPosition(),
+            content: "<label>Heimilisfang<input></label>",
         });
+        infoMarker.infoWindow.open(map, infoMarker.marker);
 
     });
 }

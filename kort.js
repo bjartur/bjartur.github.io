@@ -72,7 +72,10 @@ function initMap() { // automatically called by the Google Maps library
         infoMarker = mark(map)({ // just create and open a placeholder marker containing a form
             title: "Skrá hús til leigu",
             position: marker.getPosition(),
-            content: "<label>Heimilisfang<input autofocus></label>",
+            content: "<label>Heimilisfang <input autofocus></label>"
+                   +" <label>Fermetrafjöldi <input></label>"
+                   +"<label>Mynd <input type=file></label>"
+                   +" <label>Herbergjafjöldi <input></label>",
         });
         infoMarker.infoWindow.open(map, infoMarker.marker);
 

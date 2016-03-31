@@ -74,10 +74,14 @@ function initMap() { // automatically called by the Google Maps library
             position: marker.getPosition(),
             content: "<label>Heimilisfang <input autofocus></label>"
                    +" <label>Fermetrafjöldi <input></label>"
-                   +"<label>Mynd <input type=file></label>"
+                   +" <label>Mynd <input type=file></label>"
                    +" <label>Herbergjafjöldi <input></label>",
         });
+        if (window.adForm != null) {
+            window.adForm.infoWindow.close(null);
+//          window.adForm.marker.setMap(null);
+        }
         infoMarker.infoWindow.open(map, infoMarker.marker);
-
+        window.adForm = infoMarker;
     });
 }

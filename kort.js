@@ -37,7 +37,7 @@ function initMap() { // automatically called by the Google Maps library
             house.map = map;
             var marker = new google.maps.Marker(house),
             pair = {
-                marker: this.marker,
+                marker: marker,
 
                 infoWindow: annotate(map, marker, house.title, house.content)
             }
@@ -72,7 +72,7 @@ function initMap() { // automatically called by the Google Maps library
         infoMarker = mark(map)({ // just create and open a placeholder marker containing a form
             title: "Skrá hús til leigu",
             position: marker.getPosition(),
-            content: "<label>Heimilisfang<input></label>",
+            content: "<label>Heimilisfang<input autofocus></label>",
         });
         infoMarker.infoWindow.open(map, infoMarker.marker);
 
